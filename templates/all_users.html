@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+FitBuddy – Admin
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="result-header">
+
+    <p class="eyebrow">
+        ADMIN DASHBOARD
+    </p>
+
+    <h1>
+        All Users and Plans
+    </h1>
+
+</section>
+
+
+
+{% if not users %}
+
+
+<div class="card">
+
+    <p>
+        No users have been created yet.
+    </p>
+
+</div>
+
+
+{% else %}
+
+
+<div class="table-wrap card">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+    <th>
+        User ID
+    </th>
+
+    <th>
+        Name
+    </th>
+
+    <th>
+        Age
+    </th>
+
+    <th>
+        Weight
+    </th>
+
+    <th>
+        Goal
+    </th>
+
+    <th>
+        Intensity
+    </th>
+
+    <th>
+        Original Plan
+    </th>
+
+    <th>
+        Updated Plan
+    </th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+{% for user in users %}
+
+
+<tr>
+
+
+    <td>
+        {{ user.user_id }}
+    </td>
+
+
+    <td>
+        {{ user.name }}
+    </td>
+
+
+    <td>
+        {{ user.age }}
+    </td>
+
+
+    <td>
+        {{ user.weight_kg }} kg
+    </td>
+
+
+    <td>
+        {{ user.goal }}
+    </td>
+
+
+    <td>
+        {{ user.intensity }}
+    </td>
+
+
+    <td>
+
+
+        <details>
+
+            <summary>
+                View
+            </summary>
+
+
+            <pre>
+
+{{ user.plan.original_plan
+   if user.plan
+   else "—" }}
+
+            </pre>
+
+        </details>
+
+
+    </td>
+
+
+
+    <td>
+
+
+        <details>
+
+            <summary>
+                View
+            </summary>
+
+
+            <pre>
+
+{{ user.plan.updated_plan
+   if user.plan and user.plan.updated_plan
+   else "No update" }}
+
+            </pre>
+
+        </details>
+
+
+    </td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}

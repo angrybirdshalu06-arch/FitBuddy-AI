@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+FitBuddy – Create Plan
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="hero">
+
+
+    <div>
+
+        <p class="eyebrow">
+            AI FITNESS PLANNER
+        </p>
+
+
+        <h1>
+            Your 7-day wellness plan,
+            powered by AI.
+        </h1>
+
+
+        <p class="lead">
+
+            Enter your details to generate
+            a structured workout plan and
+            practical nutrition or recovery tip.
+
+        </p>
+
+    </div>
+
+
+
+    <form
+        class="card form-card"
+        action="/generate-workout"
+        method="post"
+    >
+
+
+        <h2>
+            Create Your Plan
+        </h2>
+
+
+        <label>
+
+            User ID
+
+            <input
+                name="user_id"
+                placeholder="Example: STU001"
+                required
+                minlength="2"
+                maxlength="64"
+            >
+
+        </label>
+
+
+
+        <label>
+
+            Name
+
+            <input
+                name="name"
+                placeholder="Your name"
+                required
+                minlength="2"
+                maxlength="100"
+            >
+
+        </label>
+
+
+
+        <div class="grid-2">
+
+
+            <label>
+
+                Age
+
+                <input
+                    type="number"
+                    name="age"
+                    min="13"
+                    max="100"
+                    required
+                >
+
+            </label>
+
+
+
+            <label>
+
+                Weight (kg)
+
+                <input
+                    type="number"
+                    name="weight_kg"
+                    min="20"
+                    max="400"
+                    step="0.1"
+                    required
+                >
+
+            </label>
+
+
+        </div>
+
+
+
+        <label>
+
+            Fitness Goal
+
+            <select
+                name="goal"
+                required
+            >
+
+                <option value="general wellness">
+                    General Wellness
+                </option>
+
+                <option value="weight loss">
+                    Weight Loss
+                </option>
+
+                <option value="muscle gain">
+                    Muscle Gain
+                </option>
+
+                <option value="flexibility">
+                    Flexibility
+                </option>
+
+            </select>
+
+        </label>
+
+
+
+        <label>
+
+            Workout Intensity
+
+            <select
+                name="intensity"
+                required
+            >
+
+                <option value="low">
+                    Low
+                </option>
+
+                <option
+                    value="medium"
+                    selected
+                >
+                    Medium
+                </option>
+
+                <option value="high">
+                    High
+                </option>
+
+            </select>
+
+        </label>
+
+
+
+        <p class="note">
+
+            For users under 18,
+            this demo supports general
+            wellness only.
+
+        </p>
+
+
+
+        <button type="submit">
+
+            Generate 7-Day Plan
+
+        </button>
+
+
+    </form>
+
+
+</section>
+
+
+{% endblock %}

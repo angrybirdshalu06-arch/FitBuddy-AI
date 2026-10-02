@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+FitBuddy – Error
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="card error-card">
+
+
+    <p class="eyebrow">
+        SOMETHING WENT WRONG
+    </p>
+
+
+    <h1>
+        We could not complete that request.
+    </h1>
+
+
+    <p>
+        {{ message }}
+    </p>
+
+
+    <a
+        class="button"
+        href="/"
+    >
+        Back to FitBuddy
+    </a>
+
+
+</section>
+
+
+{% endblock %}
